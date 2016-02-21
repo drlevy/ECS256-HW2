@@ -1,0 +1,12 @@
+Package: mmfit
+Title: mmfit
+Version: 0.1
+Authors@R: c(person("Charles", "Henderson", email = "cdhenderson@ucdavis.edu", role = c("aut")),
+  person("Daniel", "Levy", email = "drlevy@ucdavis.edu", role = c("aut", "cre")),
+  person("Luan", "Nguyen", email = "lounguyen@ucdavis.edu", role = c("aut")))
+Description: mmfit
+Depends:
+    R (>= 3.2.3)
+License: CC0
+LazyData: true
+RoxygenNote: 5.0.1
