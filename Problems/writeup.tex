@@ -1,11 +1,25 @@
 %
 
 \documentclass{article}
+\usepackage{amsmath}
 \begin{document}
 
 \section{Problem A}
 \subsection{Analytical Solution}
-(todo)
+\begin{align}
+cov(X_n,X_{n+1})=E[X_nX_{n+1}]-EX_nEX_{n+1} \\
+E[X_nX_{n+1}]=\sum_{i=0}^{\infty}E[X_nX_{n+1}|X_n=i]P(X_n=i) \\
+=\sum_{i=0}^{\infty}iE[X_{n+1}|X_n=i]P(X_n=i) \notag\\
+=\sum_{i=0}^{\infty}i(E[X_n|X_n=i]+E[I_n|X_n=i])P(X_n=i) \notag\\
+=\sum_{i=0}^{\infty}i(i+E[I_n|X_n=i])P(X_n=i) \notag\\
+=\sum_{i=0}^{\infty}i(i+(\alpha_i-\beta_i))P(X_n=i) \notag\\
+EX_n=\sum_{i=0}^{\infty}iP(X_n=i) \\
+EX_{n+1}=EX_n+EI_n \\
+=EX_n+\sum_{i=0}^{\infty}E[I_n|X_n=i]P(X_n=i) \notag\\
+=EX_n+\sum_{i=0}^{\infty}(\alpha_i-\beta_i)P(X_n=i) \notag\\
+\text{From (1), }(2)-(3)*(4)\Rightarrow \notag\\
+\lim_{n\rightarrow\infty}cov(X_n,X_{n+1})=\sum_{i=0}^{\infty}\pi_i(i+1)(i+\alpha_i-\beta_i)
+\end{align}
 \subsection{Simulation Results}
 (todo)
 \end{document}
