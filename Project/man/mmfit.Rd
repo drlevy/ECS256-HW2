@@ -4,7 +4,7 @@
 \alias{mmfit}
 \title{mmfit}
 \usage{
-mmfit(x, g, start)
+mmfit(x, g, start, lower = NULL, upper = NULL)
 }
 \description{
 mmfit
