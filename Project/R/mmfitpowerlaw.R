@@ -1,3 +1,6 @@
+# http://leonidzhukov.net/hse/2014/socialnetworks/lectures/lecture2.pdf
+# http://arxiv.org/pdf/0706.1062.pdf
+# http://tuvalu.santafe.edu/~aaronc/courses/7000/csci7000-001_2011_L2.pdf
 # power law is well-behaved when 2 < k < 3
 
 mmfitpowerlaw <- function(x, start) {
@@ -10,14 +13,15 @@ mmfitpowerlaw <- function(x, start) {
 
 gpowerlaw <- function(th, x) {
   t1 <- th[1]
-  meanb <- mpowerlaw(t1)
+  meanb <- mpowerlaw(x, t1)
   m1 <- meanb-x
   f <- cbind(m1)
   return(f)
 }
 
-mpowerlaw <- function(k) (k-1)/(k-2)
-ppowerlaw <- function(x, k) (k-1)*x^(-k)
-dpowerlaw <- function(x, k) x^(1-k)
-qpowerlaw <- function(q, k) k^(1/(1-q))
+mpowerlaw <- function(x, k) min(x)*(k-1)/(k-2)
+dpowerlaw2 <- function(x, k, xmin) ((k-1)/xmin)*(x/xmin)^(-k)
+dpowerlaw <- function(x, k) ((k-1)/min(x))*(x/(min(x)))^(-k)
+ppowerlaw <- function(x, k) 1-(x/min(x))^(1-k)
+qpowerlaw <- function(q, k) ((1-q)*min(x)^(1-k))^(1/(1-k))
 rpowerlaw <- function(n, k) qpowerlaw(runif(n), k)
