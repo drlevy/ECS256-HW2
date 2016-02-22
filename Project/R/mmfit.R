@@ -1,12 +1,12 @@
 #' @title mmfit
 #' @description mmfit
 #' @export
-mmfit <- function(x, g, start) {
+mmfit <- function(x, g, start, lower = NULL, upper = NULL) {
   mmf <- mmf()
 
   # Moment function specified.
   if(class(g) == "function") {
-    mmf <- mmfitfunc(x, g, start)
+    mmf <- mmfitfunc(x, g, start, lower, upper)
   # Built-in distribution.
   } else if(class(g) == "character") {
     if(g == "poisson") {
