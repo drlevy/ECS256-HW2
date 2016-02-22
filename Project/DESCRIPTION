@@ -6,7 +6,12 @@ Authors@R: c(person("Charles", "Henderson", email = "cdhenderson@ucdavis.edu", r
   person("Luan", "Nguyen", email = "lounguyen@ucdavis.edu", role = c("aut")))
 Description: mmfit
 Depends:
-    R (>= 3.2.3)
+  R (>= 3.2.3),
+  ggplot2,
+  gmm
+Imports:
+  ggplot2,
+  gmm
 License: CC0
 LazyData: true
 RoxygenNote: 5.0.1
