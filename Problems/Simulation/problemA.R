@@ -59,10 +59,10 @@ CalculateCov <- function(Pis, Alpha, Beta, n)
     exn = exn + i*Pis[i]
   }
 
-  exni = exn
+  exni = 0
   for(i in 1:n)
   {
-    exni = exni + (Alpha[i]-Beta[i])*Pis[i]
+    exni = exni + (i + (Alpha[i]-Beta[i]))*Pis[i]
   }
 
   return(two - (exn*exni))
