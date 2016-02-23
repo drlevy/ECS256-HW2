@@ -48,7 +48,6 @@ dpois2 <- function(x, r, l1, l2)
 
 rpois2 <- function(n, r, l1, l2)
 {
-  r <- max(0, r)
   n1 <- n*r
   n2 <- n-n1
   return(sample(c(rpois(n1, l1), rpois(n2, l2))))
