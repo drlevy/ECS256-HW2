@@ -49,9 +49,9 @@ testexpmix <- function() {
 
 dexp2 <- function(x, r1, lambda1, lambda2)
 {
-  {  e <- exp(1)
+  e <- exp(1)
   if( runif(1) <= r1 )
-
+  {
     return(lambda1/(e^(lambda1*x)))
   }
   else
