@@ -8,12 +8,10 @@ Description: mmfit
 Depends:
   R (>= 3.2.3),
   ggplot2,
-  gmm,
-  nleqslv
+  gmm
 Imports:
   ggplot2,
-  gmm,
-  nleqslv
+  gmm
 License: CC0
 LazyData: true
 RoxygenNote: 5.0.1
