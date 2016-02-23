@@ -1,7 +1,4 @@
 mmfitpoisson <- function(x, start) {
-
-  #ll = min(x); up = max(x)
-  #coefs = gmmhelper(x, g, start, lower=ll, upper=up)
   lam = mean(x);
 
   mmf <- mmf(thetahat = lam, thetahatses = NULL, denscomp = NULL, cdfband = NULL);
@@ -19,7 +16,6 @@ testpoisson <- function(){
   hist(xb, probability = TRUE)
   lam<- mmf$thetahat[1]
   t <- 1:100
-  #plot(t, poisfit(t, lam), type='b', xlim = c(0,100))
   lam
 }
 
