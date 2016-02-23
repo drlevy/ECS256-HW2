@@ -31,5 +31,5 @@ testgamma <- function(){
   hist(xb, probability = TRUE)
   a<- mmf$thetahat[1]
   s<- mmf$thetahat[2]
-  curve(dgamma(x, a, s), xlim = c(0,10), add = TRUE)
+  curve(gammafit(x, a, s), xlim = c(0,10), add = TRUE)
 }
