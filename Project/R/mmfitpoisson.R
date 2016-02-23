@@ -1,17 +1,26 @@
 mmfitpoisson <- function(x, start) {
-  samplesize = length(x);
 
-  g<-function(th,x){
-    lambda<-th[1];
-    mean<-lambda;
-    # lambda is mean
-    m1<-mean-x;
-    return(m1);
-  }
+  #ll = min(x); up = max(x)
+  #coefs = gmmhelper(x, g, start, lower=ll, upper=up)
+  lam = mean(x);
 
-  coefs = gmmhelper(x, g, start, lower=0.1, upper=999) # hmm...
-  hats = sqrt( res/length(samplesize) );
-
-  mmf <- mmf(thetahat = coefs, thetahatses = hats, denscomp = NULL, cdfband = NULL);
+  mmf <- mmf(thetahat = lam, thetahatses = NULL, denscomp = NULL, cdfband = NULL);
   return(mmf)
 }
+
+poisfit <- function(x, lam) (lam^x)*exp(-lam)/factorial(x)
+
+#' @title poisson
+#' @description poisson
+#' @export
+testpoisson <- function(){
+  xb <- rpois(1000, 0.2)
+  mmf <- mmfit(xb, "poisson", 1.5 )
+  hist(xb, probability = TRUE)
+  lam<- mmf$thetahat[1]
+  t <- 1:100
+  #plot(t, poisfit(t, lam), type='b', xlim = c(0,100))
+  lam
+}
+
+
