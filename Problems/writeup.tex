@@ -17,12 +17,12 @@ EX_n=\sum_{i=0}^{\infty}iP(X_n=i) \\
 EX_{n+1}=EX_n+EI_n \\
 =EX_n+\sum_{i=0}^{\infty}E[I_n|X_n=i]P(X_n=i) \notag\\
 =EX_n+\sum_{i=0}^{\infty}(\alpha_i-\beta_i)P(X_n=i) \notag\\
-\text{From (1), }(2)-(3)*(4)\Rightarrow \notag\\
+\text{From (1), }(2)-(3)\cdot(4)\Rightarrow \notag\\
 \lim_{n\rightarrow\infty}cov(X_n,X_{n+1})=\sum_{i=0}^{\infty}i(i+\alpha_i-\beta_i)\pi_i-\sum_{i=0}^{\infty}i\pi_i\sum_{i=0}^{\infty}(i+\alpha_i-\beta_i)\pi_i
 \end{align}
 \subsection{Simulation Results}
 
-For simulation, let's define the walk on the positive integers to have a birth rate of 1 for $X_1$, 0.5 for $X_2$ and $X_3$ and 0 for $X_{\geq4}$. Similarly, the death rate is 0 for $X_1$, 0.5 for $X_2$ and $X_3$, 1 for $X_4$ and 0 for $X_{>4}$. Running a simulation for $n = 1000000$ generates a covariance of 0.4176591. Using the above equation with the markov chain solver created in homework 1 to generate the pi values, it generates a covariance of 0.4166667, a $<$1\% difference. This result gives a good indication that our math is correct since it is unlikely that the simulation code and the math result would both suffer from two separate errors that generate the same outcome. To run a simulation with our code, run the "RunSimulation" function in problemA.R.
+Define the walk on the positive integers to have a birth rate of 1 for $X_1$, 0.5 for $X_2$ and $X_3$ and 0 for $X_{\geq4}$. Similarly, the death rate is 0 for $X_1$, 0.5 for $X_2$ and $X_3$, 1 for $X_4$ and 0 for $X_{>4}$. Running a simulation for $n = 1000000$ generates a covariance of 0.4176591. Using the above equation with the markov chain solver created in homework 1 to generate the pi values, it generates a covariance of 0.4166667, a $<$1\% difference. This result gives a good indication that our math is correct since it is unlikely that the simulation code and the math result would both suffer from two separate errors that generate the same outcome. To run a simulation with our code, run the ``RunSimulation'' function in ``problemA.R''.
 
 \end{document}
 
