@@ -74,11 +74,12 @@ RunSimulation <- function()
   pijdef
   pijdef[1,2] = 1
   pijdef[2,3] = 0.5
+  pijdef[3,4] = 0.5
+
   pijdef[2,1] = 0.5
   pijdef[3,2] = 0.5
-  pijdef[2,3] = 0.5
-  pijdef[3,4] = 0.5
   pijdef[4,3] = 1
+
   pijdef
   c = mc(pijdef)
   stn(c)

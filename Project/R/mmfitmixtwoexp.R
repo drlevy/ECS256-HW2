@@ -10,8 +10,13 @@ mmfitmixtwoexp <- function(x, start) {
     mean = (r1*(1/lambda1) + r2*(1/lambda2))
     m1 =  mean - x
 
-    m2 = 2*r1/(lambda1^2) + 2*r2/(lambda2^2) - (x-mean)^2
-    f = cbind(m1, m2)
+    expected_value = 2*r1/(lambda1^2) + 2*r2/(lambda2^2)
+
+    m2 = expected_value - (x-mean)^2
+
+    m3 = 6*r1/(lambda1^3) + 6*r2/(lambda2^3) - (mean-x)^3
+
+    f = cbind(m1, m2, m3)
     return(f)
   }
 
@@ -27,31 +32,33 @@ mmfitmixtwoexp <- function(x, start) {
 #' @description testexpmix
 #' @export
 testexpmix <- function() {
-  dexp2 <- function(x, r1, lambda1, lambda2)
-  {
-    e <- exp(1)
-    if( runif(1) <= r1 )
-    {
-      return(lambda1/(e^(lambda1*x)))
-    }
-    else
-    {
-      return(lambda2/(e^(lambda2*x)))
-    }
-  }
 
-  rexp2 <- function(n, r1, lambda1, lambda2)
-  {
-    e <- exp(1)
-    n1 = n*r1
-    n2 = n - n1
-
-    return(sample(c( rexp(n1, lambda1), rexp(n2, lambda2))))
-  }
-
-  x <- rexp2(10000, 0.3, 0.5, 1.5)
+  x <- rexp2(10000, 0.3, 5, 0.2)
   mmf <- mmfit(x, "mix_two_exp", c(r1 = 0.5, lambda1 = 1, lambda2 = 1))
   hist(x, probability = TRUE)
   curve(dexp2(x, mmf$thetahat[1], mmf$thetahat[2], mmf$thetahat[3]), add = TRUE)
+
   return(mmf)
+}
+
+dexp2 <- function(x, r1, lambda1, lambda2)
+{
+  e <- exp(1)
+  if( runif(1) <= r1 )
+  {
+    return(lambda1/(e^(lambda1*x)))
+  }
+  else
+  {
+    return(lambda2/(e^(lambda2*x)))
+  }
+}
+
+rexp2 <- function(n, r1, lambda1, lambda2)
+{
+  e <- exp(1)
+  n1 = n*r1
+  n2 = n - n1
+
+  return(sample(c( rexp(n1, lambda1), rexp(n2, lambda2))))
 }
