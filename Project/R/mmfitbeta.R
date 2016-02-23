@@ -13,21 +13,29 @@ mmfitbeta <- function(x, start) {
 
   coefs = gmmhelper(x, g, start, lower=0 , upper=1)
 
-  mmf <- mmf(thetahat = coefs, thetahatses = NULL, denscomp = NULL, cdfband = NULL);
+  start[1] = coefs[1]
+  start[2] = coefs[2]
+  se = c(coefs[3], coefs[4])
+
+  mmf <- mmf(thetahat = start, thetahatses = se, denscomp = NULL, cdfband = NULL);
 
   return(mmf)
 }
-
-betafit <- function(x, a, b) ((1-x)^(b-1))*(x^(a-1))/beta(a,b)
 
 #' @title testbeta
 #' @description testbeta
 #' @export
 testbeta <- function(){
-  xb <- rbeta(1000, 0.1, 0.7)
-  mmf <- mmfit(xb, "beta", c(0.3, 0.5))
+  xb <- rbeta(1000, 5, 20)
+  mmf <- mmfit(xb, "beta", c(alpha = 3, beta = 10))
   hist(xb, probability = TRUE)
   a<- mmf$thetahat[1]
   b<- mmf$thetahat[2]
-  curve(betafit(x, a, b), xlim = c(0,1), add = TRUE)
+  curve(dbeta(x, a, b), xlim = c(0,1), add = TRUE)
+  return(mmf)
 }
+
+
+plot = ggplot(data.frame(xb), aes(xb)) + geom_histogram(binwidth = 0.01) + stat_function(mapping = aes(x), data = data.frame(x=c(0,2)), fun=dbeta, args = list(5,50))
+
+plot2 = ggplot(data.frame(x=c(0, 2)), aes(x)) + stat_function(fun=dbeta, args = list(5,50)) + geom_histogram(mapping=aes(xb), data=data.frame(xb), binwidth = 0.01)
