@@ -22,13 +22,15 @@ mmfitmixtwoexp <- function(x, start) {
 
   coefs = gmmhelper(x, g, start, 0, 0)
 
-  #hats = c(r = coefs[1], Lambda1 = coefs[2], Lambda2 = coefs[3])
   start[1] = coefs[1]
   start[2] = coefs[2]
   start[3] = coefs[3]
   se = c(coefs[4],coefs[5],coefs[6])
 
-  mmf <- mmf(thetahat = start, thetahatses = se, denscomp = NULL, cdfband = NULL);
+  plot = generateparametricplot(dexp2, list(start[1], start[2], start[3]), x)
+  band = generateecdfplot(x)
+
+  mmf <- mmf(thetahat = start, thetahatses = se, denscomp = plot, cdfband = band);
   return(mmf)
 }
 
@@ -38,20 +40,18 @@ mmfitmixtwoexp <- function(x, start) {
 #' @export
 testexpmix <- function() {
 
-  x <- rexp2(1000, 0.3, 20, 0.1)
-  mmf <- mmfitmixtwoexp(x, c(r1 = 0.5, lambda1 = 1, lambda2 = 1))
+  x <- rexp2(1000, 0.3, 5, 2)
+  mmf <- mmfit(x, "mix_two_exp", c(r1 = 0.5, lambda1 = 1, lambda2 = 1))
   hist(x, probability = TRUE)
   curve(dexp2(x, mmf$thetahat[1], mmf$thetahat[2], mmf$thetahat[3]), add = TRUE)
-  #denscomphelper(x, dexp2(x, mmf$thetahat[1], mmf$thetahat[2], mmf$thetahat[3]))
- # plot(ecdf(x))
   return(mmf)
 }
 
 dexp2 <- function(x, r1, lambda1, lambda2)
 {
-  e <- exp(1)
+  {  e <- exp(1)
   if( runif(1) <= r1 )
-  {
+
     return(lambda1/(e^(lambda1*x)))
   }
   else
