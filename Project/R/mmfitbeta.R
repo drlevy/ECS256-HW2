@@ -18,8 +18,9 @@ mmfitbeta <- function(x, start) {
   se = c(coefs[3], coefs[4])
 
   plot = generateparametricplot(dbeta, list(start[1], start[2]), x)
+  band = generateecdfplot(x)
 
-  mmf <- mmf(thetahat = start, thetahatses = se, denscomp = plot, cdfband = NULL);
+  mmf <- mmf(thetahat = start, thetahatses = se, denscomp = plot, cdfband = band);
 
   return(mmf)
 }
