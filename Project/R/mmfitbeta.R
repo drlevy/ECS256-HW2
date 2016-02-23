@@ -34,8 +34,3 @@ testbeta <- function(){
   curve(dbeta(x, a, b), xlim = c(0,1), add = TRUE)
   return(mmf)
 }
-
-
-plot = ggplot(data.frame(xb), aes(xb)) + geom_histogram(binwidth = 0.01) + stat_function(mapping = aes(x), data = data.frame(x=c(0,2)), fun=dbeta, args = list(5,50))
-
-plot2 = ggplot(data.frame(x=c(0, 2)), aes(x)) + stat_function(fun=dbeta, args = list(5,50)) + geom_histogram(mapping=aes(xb), data=data.frame(xb), binwidth = 0.01)
