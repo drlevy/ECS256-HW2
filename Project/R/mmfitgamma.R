@@ -38,4 +38,5 @@ testgamma <- function(){
   a<- mmf$thetahat[1]
   s<- mmf$thetahat[2]
   curve(gammafit(x, a, s), xlim = c(0,10), add = TRUE)
+  mmf
 }

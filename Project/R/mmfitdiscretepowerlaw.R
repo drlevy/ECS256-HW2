@@ -18,5 +18,5 @@ testdiscretepowerlaw <- function() {
   mmf <- mmfit(x, "discretepowerlaw", 2.1)
   hist(x, probability = TRUE)
   gamma<- mmf$thetahat[1]
-  gamma
+  mmf
 }
