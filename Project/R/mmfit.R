@@ -1,18 +1,20 @@
 #' @title mmfit
 #' @description mmfit
 #' @export
-mmfit <- function(x, g, start, lower = NULL, upper = NULL) {
+mmfit <- function(x, g, start, lower = NULL, upper = NULL, gd = NULL) {
   mmf <- mmf()
 
   # Moment function specified.
   if(class(g) == "function") {
-    mmf <- mmfitfunc(x, g, start, lower, upper)
+    mmf <- mmfitfunc(x, g, gd, start, lower, upper)
   # Built-in distribution.
   } else if(class(g) == "character") {
     if(g == "poisson") {
       mmf <- mmfitpoisson(x, start)
     } else if(g == "discretepowerlaw") {
       mmf <- mmfitdiscretepowerlaw(x, start)
+    } else if(g == "contpowerlaw") {
+      mmf <- mmfitpowerlaw(x, start)
     } else if(g == "gamma") {
       mmf <- mmfitgamma(x, start)
     } else if(g == "beta") {

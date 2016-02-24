@@ -1,7 +1,14 @@
-mmfitfunc <- function(x, g, start, lower = NULL, upper = NULL) {
+mmfitfunc <- function(x, g, gd, start, lower = NULL, upper = NULL) {
   mmf <- mmf()
 
-  mmf$thetahat <- gmmhelper(x, g, start, lower, upper)
+  coefs <- gmmhelper(x, g, start, lower, upper)
+
+  start <- coefs[1:length(start)]
+
+  plot = generateparametricplot(gd, as.list(start), x)
+  band = generateecdfplot(x)
+
+  mmf <- mmf(thetahat = start, thetahatses = coefs[length(start):2*length(start)], denscomp = plot, cdfband = band);
 
   return(mmf)
 }
@@ -11,9 +18,8 @@ mmfitfunc <- function(x, g, start, lower = NULL, upper = NULL) {
 #' @export
 testmmfitfunc <- function() {
   x <- rexp(1000, 0.5)
-  mmf <- mmfit(x, gexp, 0.1, 0, 1)
+  mmf <- mmfit(x, gexp, 0.1, 0, 1, gd = dexp)
   hist(x, probability = TRUE)
-  minx <- min(x)
   curve(dexp(x, mmf$thetahat), add = TRUE)
   return(mmf)
 }
