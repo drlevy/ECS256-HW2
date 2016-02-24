@@ -16,7 +16,6 @@ gpowerlaw <- function(th, x) {
   meanb <- mpowerlaw(x, t1)
   m1 <- meanb-x
   f <- cbind(m1)
-  return(f)
 }
 
 #' @title testpowerlaw
@@ -27,7 +26,7 @@ testpowerlaw <- function() {
   mmf <- mmfit(x, "contpowerlaw", 2.1)
   hist(x, probability = TRUE)
   minx <- min(x)
-  curve(dpowerlaw2(x, mmf$thetahat, minx), add = TRUE)
+  curve(dpowerlaw2(x, mmf$thetahat[1], minx), add = TRUE)
   return(mmf)
 }
 
