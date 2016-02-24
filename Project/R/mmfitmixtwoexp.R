@@ -34,7 +34,8 @@ mmfitmixtwoexp <- function(x, start) {
 
 
 #' @title testexpmix
-#' @description This function generates data from two exponential distribution and then uses mmfit to estimate the parameters and then graphs the data versus the estimated values.
+#' @description
+#'  This function generates data from two exponential distribution and then uses mmfit to estimate the parameters and then graphs the data versus the estimated values.
 #' @examples
 #' mmfit = testexpmix()
 #' @export

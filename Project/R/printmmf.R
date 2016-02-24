@@ -1,5 +1,6 @@
 #' @title print.mmf
-#' @description This function should be called by pint(object) and prints out the estimated coefficients.
+#' @description
+#'  This function should be called by pint(object) and prints out the estimated coefficients.
 #' @examples
 #' betadist = testbeta()
 #' print(betadist)
