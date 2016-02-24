@@ -13,9 +13,15 @@ mmfitgamma <- function(x, start) {
 
   ll = min(x); up = max(x)
   coefs = gmmhelper(x, g, start, lower= ll, upper=up) # maybe?
-  hats = sqrt( coefs/length(samplesize) );
 
-  mmf <- mmf(thetahat = coefs, thetahatses = hats, denscomp = NULL, cdfband = NULL);
+  start[1] = coefs[1]
+  start[2] = coefs[2]
+  se = c(coefs[3], coefs[4])
+
+  plot = generateparametricplot(dgamma, list(start[1], start[2]), x)
+  band = generateecdfplot(x)
+
+  mmf <- mmf(thetahat = coefs, thetahatses = se, denscomp = plot, cdfband = band);
   return(mmf)
 }
 
