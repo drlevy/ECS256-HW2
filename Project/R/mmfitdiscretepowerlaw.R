@@ -3,7 +3,10 @@ mmfitdiscretepowerlaw <- function(x, start) {
   m <- mean(x)
   gamma <- (1-(2*m))/(1-m)
 
-  mmf <- mmf(thetahat = gamma, thetahatses = NULL, denscomp = NULL, cdfband = NULL)
+  plot = generateparametricplot(dpldis, list(gamma), x)
+  band = generateecdfplot(x)
+
+  mmf <- mmf(thetahat = gamma, thetahatses = NULL, denscomp = plot, cdfband = band)
   return(mmf)
 }
 
