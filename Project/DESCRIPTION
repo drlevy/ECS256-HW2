@@ -8,7 +8,8 @@ Description: mmfit
 Depends:
   R (>= 3.2.3),
   ggplot2,
-  gmm
+  gmm,
+  grid
 Imports:
   ggplot2,
   gmm
