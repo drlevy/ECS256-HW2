@@ -11,8 +11,8 @@ mmfit <- function(x, g, start, lower = NULL, upper = NULL) {
   } else if(class(g) == "character") {
     if(g == "poisson") {
       mmf <- mmfitpoisson(x, start)
-    } else if(g == "power_law") {
-      mmf <- mmfitpowerlaw(x, start)
+    } else if(g == "discretepowerlaw") {
+      mmf <- mmfitdiscretepowerlaw(x, start)
     } else if(g == "gamma") {
       mmf <- mmfitgamma(x, start)
     } else if(g == "beta") {
