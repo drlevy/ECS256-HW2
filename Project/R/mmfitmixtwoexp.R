@@ -14,7 +14,7 @@ mmfitmixtwoexp <- function(x, start) {
 
     m2 = expected_value - (x-mean)^2
 
-    m3 = 6*r1/(lambda1^3) + 6*r2/(lambda2^3) - (mean-x)^3
+    m3 = 6*r1/(lambda1^3) + 6*r2/(lambda2^3) - (x-mean)^3
 
     f = cbind(m1, m2, m3)
     return(f)
@@ -22,9 +22,8 @@ mmfitmixtwoexp <- function(x, start) {
 
   coefs = gmmhelper(x, g, start, 0, 0)
 
-  start[1] = coefs[1]
-  start[2] = coefs[2]
-  start[3] = coefs[3]
+  start <- coefs[1:3]
+
   se = c(coefs[4],coefs[5],coefs[6])
 
   plot = generateparametricplot(dexp2, list(start[1], start[2], start[3]), x)
