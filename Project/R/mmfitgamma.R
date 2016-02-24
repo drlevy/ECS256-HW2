@@ -1,12 +1,12 @@
 mmfitgamma <- function(x, start) {
   samplesize <- length(x);
 
-  g<-function(th,x){
-    a<-th[1];
-    s<-th[2];
-    mean<-a*s;
-    m1<-mean-x;
-    m2<- (a*(s^2)) - (x - mean)^2;
+  g <- function(th,x){
+    a <- th[1];
+    s <- th[2];
+    mean <- a*s;
+    m1 <- mean-x;
+    m2 <- (a*(s^2)) - (x - mean)^2;
     f <- cbind(m1, m2)
   }
 
