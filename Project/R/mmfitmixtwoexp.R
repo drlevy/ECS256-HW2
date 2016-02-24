@@ -50,14 +50,8 @@ testexpmix <- function() {
 dexp2 <- function(x, r1, lambda1, lambda2)
 {
   e <- exp(1)
-  if( runif(1) <= r1 )
-  {
-    return(lambda1/(e^(lambda1*x)))
-  }
-  else
-  {
-    return(lambda2/(e^(lambda2*x)))
-  }
+
+  return(r1*lambda1/(e^(lambda1*x)) + (1-r1)*lambda2/(e^(lambda2*x)))
 }
 
 rexp2 <- function(n, r1, lambda1, lambda2)
