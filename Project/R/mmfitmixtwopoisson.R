@@ -17,11 +17,14 @@ mmfitmixtwopoisson <- function(x, start) {
     f = cbind(m1, m2, m3)
   }
 
-  coefs <- gmmhelper(x, g, start)
+  start[1] <- coefs[1]
+  start[2] <- coefs[2]
+  start[3] <- coefs[3]
 
-  mmf$thetahat <- coefs[1:3]
+  plot = generateparametricplot(dpois2, list(start[1], start[2], start[3]), x)
+  band = generateecdfplot(x)
 
-  return(mmf)
+  mmf <- mmf(thetahat = start, thetahatses = coefs[4:6], denscomp = plot, cdfband = band);
 }
 
 #' @title testmixtwopoisson
@@ -29,7 +32,7 @@ mmfitmixtwopoisson <- function(x, start) {
 #' @export
 testmixtwopoisson <- function() {
   x <- rpois2(1000, 0.5, 5, 10)
-  mmf <- mmfit(x, "mix_two_poisson", c(r = 0.2, l1 = 2, l2 = 5))
+  mmf <- mmfit(x, "mix_two_poisson", c(r = 0.3, l1 = 2, l2 = 5))
   hist(x, col = "blue", probability = TRUE)
   y <- rpois2(1000, mmf$thetahat[1], mmf$thetahat[2], mmf$thetahat[3])
   hist(y, probability = TRUE, col = "red", add = TRUE)
