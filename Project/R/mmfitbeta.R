@@ -1,5 +1,5 @@
 mmfitbeta <- function(x, start) {
-  samplesize = length(x);
+  samplesize <- length(x);
 
   g<-function(th,x){
     t1<-th[1];
@@ -8,19 +8,18 @@ mmfitbeta <- function(x, start) {
     meanb<-t1/t12;
     m1<-meanb-x;
     m2<-t1*t2/(t12^2*(t12+1))-(x-meanb)^2;
-    f<-cbind(m1,m2);return(f);
+    f<-cbind(m1,m2);
   }
 
   coefs = gmmhelper(x, g, start, lower=0 , upper=1)
 
   start[1] = coefs[1]
   start[2] = coefs[2]
-  se = c(coefs[3], coefs[4])
 
-  plot = generateparametricplot(dbeta, list(start[1], start[2]), x)
-  band = generateecdfplot(x)
+  plot <- generateparametricplot(dbeta, as.list(start), x)
+  band <- generateecdfplot(x)
 
-  mmf <- mmf(thetahat = start, thetahatses = se, denscomp = plot, cdfband = band);
+  mmf <- mmf(thetahat = start, thetahatses = coefs[3:4], denscomp = plot, cdfband = band);
 
   return(mmf)
 }

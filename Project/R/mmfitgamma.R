@@ -1,5 +1,5 @@
 mmfitgamma <- function(x, start) {
-  samplesize = length(x);
+  samplesize <- length(x);
 
   g<-function(th,x){
     a<-th[1];
@@ -8,21 +8,20 @@ mmfitgamma <- function(x, start) {
     m1<-mean-x;
     m2<- (a*(s^2)) - (x - mean)^2;
     f <- cbind(m1, m2)
-    return (f);
   }
 
-  ll = min(x); up = max(x)
-  coefs = gmmhelper(x, g, start, lower= ll, upper=up) # maybe?
+  ll <- min(x)
+  up <- max(x)
 
-  start[1] = coefs[1]
-  start[2] = coefs[2]
-  se = c(coefs[3], coefs[4])
+  coefs <- gmmhelper(x, g, start, lower= ll, upper=up)
 
-  plot = generateparametricplot(dgamma, list(start[1], start[2]), x)
-  band = generateecdfplot(x)
+  start[1] <- coefs[1]
+  start[2] <- coefs[2]
 
-  mmf <- mmf(thetahat = coefs, thetahatses = se, denscomp = plot, cdfband = band);
-  return(mmf)
+  plot <- generateparametricplot(dgamma, list(start[1], start[2]), x)
+  band <- generateecdfplot(x)
+
+  mmf <- mmf(thetahat = coefs, thetahatses = coefs[3:4], denscomp = plot, cdfband = band);
 }
 
 

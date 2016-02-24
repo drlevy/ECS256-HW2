@@ -3,22 +3,21 @@ mmfitmixtwoexp <- function(x, start) {
 
   g <- function(th, x)
   {
-    r1 = th[1]
-    r2 = 1.0 - r1
-    lambda1 = th[2]
-    lambda2 = th[3]
+    r1 <- th[1]
+    r2 <- 1.0 - r1
+    lambda1 <- th[2]
+    lambda2 <- th[3]
 
-    mean = (r1*(1/lambda1) + r2*(1/lambda2))
-    m1 =  mean - x
+    mean <- (r1*(1/lambda1) + r2*(1/lambda2))
+    m1 <- mean - x
 
-    expected_value = 2*r1/(lambda1^2) + 2*r2/(lambda2^2)
+    expected_value <- 2*r1/(lambda1^2) + 2*r2/(lambda2^2)
 
-    m2 = expected_value - (x-mean)^2
+    m2 <- expected_value - (x-mean)^2
 
-    m3 = 6*r1/(lambda1^3) + 6*r2/(lambda2^3) - (x-mean)^3
+    m3 <- 6*r1/(lambda1^3) + 6*r2/(lambda2^3) - (x-mean)^3
 
-    f = cbind(m1, m2, m3)
-    return(f)
+    f <- cbind(m1, m2, m3)
   }
 
   coefs <- gmmhelper(x, g, start)
@@ -27,8 +26,8 @@ mmfitmixtwoexp <- function(x, start) {
   start[2] <- coefs[2]
   start[3] <- coefs[3]
 
-  plot = generateparametricplot(dexp2, list(start[1], start[2], start[3]), x)
-  band = generateecdfplot(x)
+  plot <- generateparametricplot(dexp2, as.list((start)), x)
+  band <- generateecdfplot(x)
 
   mmf <- mmf(thetahat = start, thetahatses = coefs[4:6], denscomp = plot, cdfband = band);
 }

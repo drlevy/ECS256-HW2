@@ -5,12 +5,10 @@ mmfitfunc <- function(x, g, gd, start, lower = NULL, upper = NULL) {
 
   start <- coefs[1:length(start)]
 
-  plot = generateparametricplot(gd, as.list(start), x)
-  band = generateecdfplot(x)
+  plot <- generateparametricplot(gd, as.list(start), x)
+  band <- generateecdfplot(x)
 
   mmf <- mmf(thetahat = start, thetahatses = coefs[length(start):2*length(start)], denscomp = plot, cdfband = band);
-
-  return(mmf)
 }
 
 #' @title testmmfitfunc
@@ -29,5 +27,4 @@ gexp <- function(th, x) {
   meanb <- 1/t1
   m1 <- meanb-x
   f <- cbind(m1)
-  return(f)
 }
