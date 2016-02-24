@@ -7,6 +7,10 @@
 \method{print}{mmf}(obj)
 }
 \description{
-print.mmf
+This function should be called by pint(object) and prints out the estimated coefficients.
+}
+\examples{
+betadist = testbeta()
+print(betadist)
 }
 

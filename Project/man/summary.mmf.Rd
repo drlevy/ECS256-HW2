@@ -7,6 +7,10 @@
 \method{summary}{mmf}(obj)
 }
 \description{
-summary.mmf
+This function should be called by summary(object) and prints out the estimated coefficients and the standard errors.
+}
+\examples{
+betadist = testbeta()
+summary(betadist)
 }
 
