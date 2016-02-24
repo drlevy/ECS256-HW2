@@ -6,11 +6,14 @@
 \usage{
 \method{print}{mmf}(obj)
 }
+\arguments{
+\item{obj}{mmf to handle}
+}
 \description{
 This function should be called by pint(object) and prints out the estimated coefficients.
 }
 \examples{
-betadist = testbeta()
-print(betadist)
+ betadist = testbeta()
+ print(betadist)
 }
 

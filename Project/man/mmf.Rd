@@ -7,7 +7,16 @@
 mmf(thetahat = NULL, thetahatses = NULL, denscomp = NULL,
   cdfband = NULL)
 }
+\arguments{
+\item{thetahat}{Vector of estimates.}
+
+\item{thetahatses}{Vector containing standard error of estimates.}
+
+\item{denscomp}{ggplot graph object comparing distribution with estimated parameters to sample.}
+
+\item{cdfband}{ggplot graph object with empirical cdf and an enclosing Kolmogorov-Smirnov confidence band.}
+}
 \description{
-mmf
+Output object containing estimates and other convenience functionality.
 }
 

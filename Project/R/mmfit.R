@@ -1,5 +1,25 @@
 #' @title mmfit
-#' @description mmfit
+#' @description
+#'  Method of moments estimator with built-in support for common distributions.
+#' @param x Sample data.
+#' @param g Either the name of a built-in distribution or a g equivalent to \code{\link{gmm}}.
+#' @param start Vector of starting guesses for parameters.
+#' @param lower Optional lower bound for single parameter estimation.
+#' @param upper Optional upper bound for single parameter estimation.
+#' @param gd
+#'  A function specifying the pmf/pdf for the parametric family being fit.
+#'  If the user has specified a built-in family, e.g. the gamma, then this function is NULL.
+#' @examples
+#'   mmf <- mmfit(x=rpois(1000, 0.2), g="poisson", start=1.5)
+#' @seealso
+#'  custom distribution: \code{\link{testmmfitfunc}}\cr
+#'  "beta": \code{\link{testbeta}}\cr
+#'  "poisson": \code{\link{testpoisson}}\cr
+#'  "discretepowerlaw": \code{\link{testdiscretepowerlaw}}\cr
+#'  "contpowerlaw": \code{\link{testpowerlaw}}\cr
+#'  "gamma": \code{\link{testgamma}}\cr
+#'  "mix_two_poisson": \code{\link{testmixtwopoisson}}\cr
+#'  "mix_two_exp": \code{\link{testexpmix}}\cr
 #' @export
 mmfit <- function(x, g, start, lower = NULL, upper = NULL, gd = NULL) {
   mmf <- mmf()

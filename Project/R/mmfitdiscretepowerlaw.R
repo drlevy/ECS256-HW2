@@ -11,12 +11,14 @@ mmfitdiscretepowerlaw <- function(x, start) {
 }
 
 #' @title testdiscretepowerlaw
-#' @description testdiscretepowerlaw
+#' @description
+#'  This function generates data from a discrete power law distribution with gamma=2.6.
+#'  Then uses mmfit to estimate the parameters and graphs the data versus the estimated values.
 #' @export
 testdiscretepowerlaw <- function() {
-  x <- rpldis(n=100000, xmin=1, alpha=2.6)
+  #x <- rpldis(n=100000, xmin=1, alpha=2.6)
   mmf <- mmfit(x, "discretepowerlaw", 2.1)
-  hist(x, probability = TRUE)
+  #hist(x, probability = TRUE)
   gamma<- mmf$thetahat[1]
   mmf
 }

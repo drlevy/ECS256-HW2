@@ -7,6 +7,7 @@
 testdiscretepowerlaw()
 }
 \description{
-testdiscretepowerlaw
+This function generates data from a discrete power law distribution with gamma=2.6.
+ Then uses mmfit to estimate the parameters and graphs the data versus the estimated values.
 }
 

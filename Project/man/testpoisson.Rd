@@ -2,11 +2,15 @@
 % Please edit documentation in R/mmfitpoisson.R
 \name{testpoisson}
 \alias{testpoisson}
-\title{poisson}
+\title{testpoisson}
 \usage{
 testpoisson()
 }
 \description{
-poisson
+This function generates data from a poisson distribution with lambda=0.2.
+ Then uses mmfit to estimate lambda and graphs the data versus the estimated values.
+}
+\examples{
+mmfit <- testpoisson()
 }
 

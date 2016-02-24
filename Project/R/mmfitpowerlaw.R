@@ -19,7 +19,9 @@ gpowerlaw <- function(th, x) {
 }
 
 #' @title testpowerlaw
-#' @description testpowerlaw
+#' @description
+#'  This function generates data from a continuous power law distribution with parameters 2.7.
+#'  Then uses mmfit to estimate the parameters and graphs the data versus the estimated values.
 #' @export
 testpowerlaw <- function() {
   x <- rpowerlaw(1000, 2.7)

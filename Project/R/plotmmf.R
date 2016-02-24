@@ -4,8 +4,9 @@
 #'  The left plot is an empirical cdf with a confidence bound in red and blue around it.
 #'  The right plot a graphing of the parametric and non-parametric data.
 #' @examples
-#' betadist = testbeta()
-#' plot(betadist)
+#'  betadist = testbeta()
+#'  plot(betadist)
+#' @param obj mmf to handle
 #' @export
 plot.mmf <- function(obj) {
   p1 = obj$denscomp

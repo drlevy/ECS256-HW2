@@ -7,6 +7,7 @@
 testpowerlaw()
 }
 \description{
-testpowerlaw
+This function generates data from a continuous power law distribution with parameters 2.7.
+ Then uses mmfit to estimate the parameters and graphs the data versus the estimated values.
 }
 

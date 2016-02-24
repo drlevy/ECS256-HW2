@@ -35,12 +35,12 @@ mmfitmixtwoexp <- function(x, start) {
 
 #' @title testexpmix
 #' @description
-#'  This function generates data from two exponential distribution and then uses mmfit to estimate the parameters and then graphs the data versus the estimated values.
+#'  This function generates data from an exp mixture with mixing ratio=0.5, labda1=1, lambda2=1.
+#'  Then uses mmfit to estimate the parameters and graphs the data versus the estimated values.
 #' @examples
 #' mmfit = testexpmix()
 #' @export
 testexpmix <- function() {
-
   x <- rexp2(1000, 0.3, 5, 2)
   mmf <- mmfit(x, "mix_two_exp", c(r1 = 0.5, lambda1 = 1, lambda2 = 1))
   hist(x, probability = TRUE)
@@ -48,15 +48,13 @@ testexpmix <- function() {
   return(mmf)
 }
 
-dexp2 <- function(x, r1, lambda1, lambda2)
-{
+dexp2 <- function(x, r1, lambda1, lambda2) {
   e <- exp(1)
 
   return(r1*lambda1/(e^(lambda1*x)) + (1-r1)*lambda2/(e^(lambda2*x)))
 }
 
-rexp2 <- function(n, r1, lambda1, lambda2)
-{
+rexp2 <- function(n, r1, lambda1, lambda2) {
   e <- exp(1)
   n1 = n*r1
   n2 = n - n1

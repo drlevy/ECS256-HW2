@@ -7,6 +7,7 @@
 testmmfitfunc()
 }
 \description{
-testmmfitfunc
+This function generates data from a custom implementation of an exponential distribution with lambda=0.5.
+ Then uses mmfit to estimate the parameters and graphs the data versus the estimated values.
 }
 

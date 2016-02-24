@@ -10,9 +10,6 @@ Depends:
   ggplot2,
   gmm,
   grid
-Imports:
-  ggplot2,
-  gmm
 License: CC0
 LazyData: true
 RoxygenNote: 5.0.1

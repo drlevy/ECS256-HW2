@@ -2,8 +2,9 @@
 #' @description
 #'  This function should be called by pint(object) and prints out the estimated coefficients.
 #' @examples
-#' betadist = testbeta()
-#' print(betadist)
+#'  betadist = testbeta()
+#'  print(betadist)
+#' @param obj mmf to handle
 #' @export
 print.mmf <- function(obj) {
   output = cbind(EstimatedCoefficients = obj$thetahat)

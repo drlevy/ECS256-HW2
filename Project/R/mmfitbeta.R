@@ -29,14 +29,14 @@ mmfitbeta <- function(x, start) {
 #'  This function generates data from a beta distribution with parameters 5 and 20.
 #'  Then uses mmfit to estimate the parameters and graphs the data versus the estimated values.
 #' @examples
-#' mmfit = testbeta()
+#' mmfit <- testbeta()
 #' @export
 testbeta <- function(){
-  xb <- rbeta(1000, 5, 20)
-  mmf <- mmfit(xb, "beta", c(alpha = 3, beta = 10))
-  hist(xb, probability = TRUE)
-  a<- mmf$thetahat[1]
-  b<- mmf$thetahat[2]
+  x <- rbeta(1000, 5, 20)
+  mmf <- mmfit(x, "beta", c(alpha = 3, beta = 10))
+  hist(x, probability = TRUE)
+  a <- mmf$thetahat[1]
+  b <- mmf$thetahat[2]
   curve(dbeta(x, a, b), xlim = c(0,1), add = TRUE)
   return(mmf)
 }

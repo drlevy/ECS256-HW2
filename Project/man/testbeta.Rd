@@ -11,6 +11,6 @@ This function generates data from a beta distribution with parameters 5 and 20.
  Then uses mmfit to estimate the parameters and graphs the data versus the estimated values.
 }
 \examples{
-mmfit = testbeta()
+mmfit <- testbeta()
 }
 

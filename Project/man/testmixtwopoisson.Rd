@@ -7,6 +7,7 @@
 testmixtwopoisson()
 }
 \description{
-testmixtwopoisson
+This function generates data from a mixture of two poisson distributions with mixing ratio=0.3, lambda1=2, lambda2=5.
+ Then uses mmfit to estimate the parameters and graphs the data versus the estimated values.
 }
 
