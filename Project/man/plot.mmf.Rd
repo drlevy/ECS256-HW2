@@ -4,7 +4,7 @@
 \alias{plot.mmf}
 \title{plot.mmf}
 \usage{
-\method{plot}{mmf}(obj)
+plot.mmf(obj)
 }
 \arguments{
 \item{obj}{mmf to handle}
