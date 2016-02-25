@@ -9,7 +9,8 @@ Depends:
   R (>= 3.2.3),
   ggplot2,
   gmm,
-  grid
+  grid,
+  poweRlaw
 License: CC0
 LazyData: true
 RoxygenNote: 5.0.1

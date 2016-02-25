@@ -30,8 +30,7 @@ Method of moments estimator with built-in support for common distributions.
 custom distribution: \code{\link{testmmfitfunc}}\cr
  "beta": \code{\link{testbeta}}\cr
  "poisson": \code{\link{testpoisson}}\cr
- "discretepowerlaw": \code{\link{testdiscretepowerlaw}}\cr
- "contpowerlaw": \code{\link{testpowerlaw}}\cr
+ "powerlaw": \code{\link{testpowerlaw}}\cr
  "gamma": \code{\link{testgamma}}\cr
  "mix_two_poisson": \code{\link{testmixtwopoisson}}\cr
  "mix_two_exp": \code{\link{testexpmix}}\cr

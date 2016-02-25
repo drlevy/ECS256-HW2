@@ -15,8 +15,7 @@
 #'  custom distribution: \code{\link{testmmfitfunc}}\cr
 #'  "beta": \code{\link{testbeta}}\cr
 #'  "poisson": \code{\link{testpoisson}}\cr
-#'  "discretepowerlaw": \code{\link{testdiscretepowerlaw}}\cr
-#'  "contpowerlaw": \code{\link{testpowerlaw}}\cr
+#'  "powerlaw": \code{\link{testpowerlaw}}\cr
 #'  "gamma": \code{\link{testgamma}}\cr
 #'  "mix_two_poisson": \code{\link{testmixtwopoisson}}\cr
 #'  "mix_two_exp": \code{\link{testexpmix}}\cr
@@ -31,10 +30,8 @@ mmfit <- function(x, g, start, lower = NULL, upper = NULL, gd = NULL) {
   } else if(class(g) == "character") {
     if(g == "poisson") {
       mmf <- mmfitpoisson(x, start)
-    } else if(g == "discretepowerlaw") {
-      mmf <- mmfitdiscretepowerlaw(x, start)
-    } else if(g == "contpowerlaw") {
-      mmf <- mmfitpowerlaw(x, start)
+    } else if(g == "powerlaw") {
+      mmf <- mmfitpowerlaw(x, start, lower, upper)
     } else if(g == "gamma") {
       mmf <- mmfitgamma(x, start)
     } else if(g == "beta") {

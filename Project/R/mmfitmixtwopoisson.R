@@ -17,6 +17,8 @@ mmfitmixtwopoisson <- function(x, start) {
     f <- cbind(m1, m2, m3)
   }
 
+  coefs <- gmmhelper(x, g, start)
+
   start[1] <- coefs[1]
   start[2] <- coefs[2]
   start[3] <- coefs[3]
