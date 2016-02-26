@@ -1,5 +1,5 @@
 Package: mmfit
-Title: mmfit
+Title: Method of Moment Fit
 Version: 0.1
 Authors@R: c(person("Charles", "Henderson", email = "cdhenderson@ucdavis.edu", role = c("aut")),
   person("Daniel", "Levy", email = "drlevy@ucdavis.edu", role = c("aut", "cre")),
