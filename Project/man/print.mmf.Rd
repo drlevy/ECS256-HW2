@@ -2,18 +2,19 @@
 % Please edit documentation in R/printmmf.R
 \name{print.mmf}
 \alias{print.mmf}
-\title{print.mmf}
+\title{print}
 \usage{
-\method{print}{mmf}(obj)
+\method{print}{mmf}(x, ...)
 }
 \arguments{
-\item{obj}{mmf to handle}
+\item{x}{mmf to handle}
+
+\item{...}{unused}
 }
 \description{
-This function should be called by pint(object) and prints out the estimated coefficients.
+This function should be called by print(object) and prints out the estimated coefficients.
 }
 \examples{
- betadist = testbeta()
- print(betadist)
+ print(testbeta())
 }
 

@@ -2,12 +2,14 @@
 % Please edit documentation in R/plotmmf.R
 \name{plot.mmf}
 \alias{plot.mmf}
-\title{plot.mmf}
+\title{plot}
 \usage{
-plot.mmf(obj)
+\method{plot}{mmf}(x, ...)
 }
 \arguments{
-\item{obj}{mmf to handle}
+\item{x}{mmf to handle}
+
+\item{...}{unused}
 }
 \description{
 This function should be called by plot(object) and displays two plots side by side.
@@ -15,7 +17,6 @@ This function should be called by plot(object) and displays two plots side by si
  The right plot a graphing of the parametric and non-parametric data.
 }
 \examples{
- betadist = testbeta()
- plot(betadist)
+ plot(testbeta())
 }
 

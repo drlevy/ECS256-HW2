@@ -2,18 +2,19 @@
 % Please edit documentation in R/summarymmf.R
 \name{summary.mmf}
 \alias{summary.mmf}
-\title{summary.mmf}
+\title{summary}
 \usage{
-\method{summary}{mmf}(obj)
+\method{summary}{mmf}(object, ...)
 }
 \arguments{
-\item{obj}{mmf to handle}
+\item{object}{mmf to handle}
+
+\item{...}{unused}
 }
 \description{
 This function should be called by summary(object) and prints out the estimated coefficients and the standard errors.
 }
 \examples{
- betadist = testbeta()
- summary(betadist)
+ summary(testbeta())
 }
 

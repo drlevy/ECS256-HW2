@@ -26,7 +26,7 @@ mmfitmixtwoexp <- function(x, start) {
   start[2] <- coefs[2]
   start[3] <- coefs[3]
 
-  plot <- generateparametricplot(dexp2, as.list((start)), x)
+  plot <- generateparametricplot(dexp2, list(start[1], start[2], start[3]), x)
   band <- generateecdfplot(x)
 
   mmf <- mmf(thetahat = start, thetahatses = coefs[4:6], denscomp = plot, cdfband = band);
@@ -42,9 +42,15 @@ mmfitmixtwoexp <- function(x, start) {
 #' @export
 testexpmix <- function() {
   x <- rexp2(1000, 0.3, 5, 2)
+
   mmf <- mmfit(x, "mix_two_exp", c(r1 = 0.5, lambda1 = 1, lambda2 = 1))
-  hist(x, probability = TRUE)
-  curve(dexp2(x, mmf$thetahat[1], mmf$thetahat[2], mmf$thetahat[3]), add = TRUE)
+
+  f <- Vectorize(function(x) dexp2(x, 0.3, 5, 2))
+  curve(f, col="blue", xlim=c(0,10))
+
+  f <- Vectorize(function(x) dexp2(x, mmf$thetahat[1], mmf$thetahat[2], mmf$thetahat[3]))
+  curve(f, col="red", xlim=c(0,10), add=TRUE)
+
   return(mmf)
 }
 

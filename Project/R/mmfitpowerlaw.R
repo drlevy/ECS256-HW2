@@ -1,4 +1,6 @@
-mmfitpowerlaw <- function(x, start, lower, upper, crit=10e-6, itermax=10e9) {
+#' @importFrom poweRlaw dpldis rpldis
+
+mmfitpowerlaw <- function(x, start, lower, upper, crit=10e-6, itermax=10e8) {
   g <- function(th, x) {
     t1 <- th[1]
 
@@ -46,10 +48,10 @@ mmfitpowerlaw <- function(x, start, lower, upper, crit=10e-6, itermax=10e9) {
 
   start[1] <- coefs[1]
 
-  plot <- generateparametricplot(dpldis, as.list(start), x)
+  plot <- generateparametricplot(dpldis, list(start[1]), x)
   band <- generateecdfplot(x)
 
-  mmf <- mmf(thetahat = start, thetahatses = coefs[4:6], denscomp = plot, cdfband = band);
+  mmf <- mmf(thetahat = start, thetahatses = coefs[2], denscomp = plot, cdfband = band);
 }
 
 #' @title testpowerlaw
@@ -60,7 +62,7 @@ mmfitpowerlaw <- function(x, start, lower, upper, crit=10e-6, itermax=10e9) {
 testpowerlaw <- function() {
   x <- rpldis(1000, xmin=2, alpha=2.2)
 
-  mmf <- mmfit(x=x, g="powerlaw", start=2.5, lower=2, upper=3)
+  mmf <- mmfit(x, g="powerlaw", start=c(gamma=2.5), lower=2, upper=3)
 
   f <- Vectorize(function(x) dpldis(x, xmin=2, alpha=2.2))
   curve(f, col="blue", xlim=c(0,100))

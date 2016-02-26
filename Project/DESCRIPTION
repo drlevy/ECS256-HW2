@@ -4,9 +4,10 @@ Version: 0.1
 Authors@R: c(person("Charles", "Henderson", email = "cdhenderson@ucdavis.edu", role = c("aut")),
   person("Daniel", "Levy", email = "drlevy@ucdavis.edu", role = c("aut", "cre")),
   person("Luan", "Nguyen", email = "lounguyen@ucdavis.edu", role = c("aut")))
-Description: mmfit
+Description: Package for general parameter estimation using method of moments.
 Depends:
-  R (>= 3.2.3),
+  R (>= 3.2.3)
+Imports:
   ggplot2,
   gmm,
   grid,

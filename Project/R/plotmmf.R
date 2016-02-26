@@ -1,16 +1,18 @@
-#' @title plot.mmf
+#' @importFrom grid grid.layout grid.newpage pushViewport viewport
+
+#' @title plot
 #' @description
 #'  This function should be called by plot(object) and displays two plots side by side.
 #'  The left plot is an empirical cdf with a confidence bound in red and blue around it.
 #'  The right plot a graphing of the parametric and non-parametric data.
 #' @examples
-#'  betadist = testbeta()
-#'  plot(betadist)
-#' @param obj mmf to handle
+#'  plot(testbeta())
+#' @param x mmf to handle
+#' @param ... unused
 #' @export
-plot.mmf <- function(obj) {
-  p1 = obj$denscomp
-  p2= obj$cdfband
+plot.mmf <- function(x, ...) {
+  p1 = x$denscomp
+  p2 = x$cdfband
 
   grid.newpage()
   pushViewport(viewport(layout = grid.layout(1, 2)))

@@ -23,7 +23,7 @@ poisfit <- function(x, lam) (lam^x)*exp(-lam)/factorial(x)
 #' @export
 testpoisson <- function(){
   x <- rpois(1000, 0.2)
-  mmf <- mmfit(x, "poisson", 1.5)
+  mmf <- mmfit(x, "poisson", c(l=1.5))
   hist(x, col = "blue", probability = TRUE)
   lam <- mmf$thetahat[1]
   y <- rpois(1000, mmf$thetahat[1])

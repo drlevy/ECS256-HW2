@@ -23,7 +23,7 @@ mmfitmixtwopoisson <- function(x, start) {
   start[2] <- coefs[2]
   start[3] <- coefs[3]
 
-  plot <- generateparametricplot(dpois2, as.list(start), x)
+  plot <- generateparametricplot(dpois2, list(start[1], start[2], start[3]), x)
   band <- generateecdfplot(x)
 
   mmf <- mmf(thetahat = start, thetahatses = coefs[4:6], denscomp = plot, cdfband = band);

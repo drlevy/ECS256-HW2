@@ -7,7 +7,7 @@
 testgamma()
 }
 \description{
-This function generates data from a gamma distribution with parameters 5 and 1/0.5.
+This function generates data from a gamma distribution with parameters a=5 and s=1/0.5.
  Then uses mmfit to estimate the parameters and graphs the data versus the estimated values.
 }
 

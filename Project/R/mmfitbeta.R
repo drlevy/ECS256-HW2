@@ -1,6 +1,4 @@
 mmfitbeta <- function(x, start) {
-  samplesize <- length(x);
-
   g <- function(th,x){
     t1 <- th[1];
     t2 <- th[2];
@@ -16,7 +14,7 @@ mmfitbeta <- function(x, start) {
   start[1] <- coefs[1]
   start[2] <- coefs[2]
 
-  plot <- generateparametricplot(dbeta, as.list(start), x)
+  plot <- generateparametricplot(dbeta, list(start[1], start[2]), x)
   band <- generateecdfplot(x)
 
   mmf <- mmf(thetahat = start, thetahatses = coefs[3:4], denscomp = plot, cdfband = band);
@@ -31,10 +29,17 @@ mmfitbeta <- function(x, start) {
 #' @export
 testbeta <- function(){
   x <- rbeta(1000, 5, 20)
-  mmf <- mmfit(x, "beta", c(alpha = 3, beta = 10))
-  hist(x, probability = TRUE)
+
+  mmf <- mmfit(x, "beta", c(a = 3, b = 10))
+
   a <- mmf$thetahat[1]
   b <- mmf$thetahat[2]
-  curve(dbeta(x, a, b), xlim = c(0,1), add = TRUE)
+
+  f <- Vectorize(function(x) dbeta(x, 5, 20))
+  curve(f, col="blue")
+
+  f <- Vectorize(function(x) dbeta(x, a, b))
+  curve(f, col="red", add=TRUE)
+
   return(mmf)
 }
