@@ -1,4 +1,4 @@
-#' @title mmfit
+#' @title Method of Moment Fit
 #' @description
 #'  Method of moments estimator with built-in support for common distributions.
 #' @param x Sample data.

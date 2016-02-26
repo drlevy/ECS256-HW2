@@ -2,7 +2,7 @@
 % Please edit documentation in R/mmfit.R
 \name{mmfit}
 \alias{mmfit}
-\title{mmfit}
+\title{Method of Moment Fit}
 \usage{
 mmfit(x, g, start, lower = NULL, upper = NULL, gd = NULL)
 }
