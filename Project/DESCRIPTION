@@ -1,4 +1,4 @@
-Package: mmfit
+Package: cranmm
 Title: Method of Moment Fit
 Version: 0.1
 Authors@R: c(person("Charles", "Henderson", email = "cdhenderson@ucdavis.edu", role = c("aut")),
